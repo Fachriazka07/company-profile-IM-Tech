@@ -48,6 +48,9 @@
       ],
       "@/validations/*": [
         "./src/validations/*"
+      ],
+      "@/data/*": [
+        "./data/*"
       ]
     }
   },

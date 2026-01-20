@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -30,9 +31,11 @@ export function AboutSection() {
                         website dan aplikasi yang cepat stabil dan scalable
                         dengan fokus pada kebutuhan bisnis dan kenyamanan pengguna
                     </p>
-                    <Button className="mt-8 bg-black text-white hover:bg-gray-800 rounded-sm px-8 py-6">
-                        Lihat Semua Services
-                    </Button>
+                    <Link href="/services">
+                        <Button className="mt-8 bg-black text-white hover:bg-gray-800 rounded-sm px-8 py-6">
+                            Lihat Semua Services
+                        </Button>
+                    </Link>
                 </div>
             </div>
 

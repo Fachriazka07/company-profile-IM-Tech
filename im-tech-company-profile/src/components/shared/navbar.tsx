@@ -42,7 +42,7 @@ export function Navbar() {
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans',
                 isScrolled
-                    ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 py-4'
+                    ? 'bg-black/90 backdrop-blur-md shadow-lg py-4'
                     : 'bg-transparent py-6'
             )}
         >
@@ -50,10 +50,7 @@ export function Navbar() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className={cn(
-                        'flex items-center gap-2 font-bold text-3xl transition-colors',
-                        isScrolled ? 'text-gray-900' : 'text-white'
-                    )}
+                    className="flex items-center gap-2 font-bold text-3xl text-white transition-colors"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                     <span>IM Tech</span>
@@ -65,22 +62,14 @@ export function Navbar() {
                         <button
                             key={link.href}
                             onClick={() => scrollToSection(link.href)}
-                            className={cn(
-                                'text-[16px] font-medium transition-colors hover:text-[#00AAFF]',
-                                isScrolled ? 'text-black' : 'text-white'
-                            )}
+                            className="text-[16px] font-medium text-white transition-colors hover:text-[#00AAFF]"
                         >
                             {link.label}
                         </button>
                     ))}
                     <Button
                         onClick={() => scrollToSection('#contact')}
-                        className={cn(
-                            "rounded-md px-6 py-5 text-sm font-bold transition-all",
-                            isScrolled
-                                ? "bg-black text-white hover:bg-gray-800"
-                                : "bg-white text-black hover:bg-gray-100"
-                        )}
+                        className="rounded-md px-6 py-5 text-sm font-bold bg-white text-black transition-all duration-200 hover:bg-[#00AAFF] hover:text-white hover:scale-105"
                     >
                         Get Started
                     </Button>
@@ -92,32 +81,37 @@ export function Navbar() {
                         <Button
                             variant="ghost"
                             size="icon"
-                            className={cn(
-                                isScrolled ? 'text-gray-900' : 'text-white'
-                            )}
+                            className="text-white"
                         >
                             <Menu className="h-6 w-6" />
                             <span className="sr-only">Toggle menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-[300px] sm:w-[350px]">
+                    <SheetContent
+                        side="right"
+                        className="w-[300px] sm:w-[350px] bg-black/80 backdrop-blur-xl border-l border-white/10"
+                    >
                         <VisuallyHidden>
                             <SheetTitle>Menu</SheetTitle>
                         </VisuallyHidden>
 
-                        <div className="flex flex-col gap-6 mt-12">
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.href}
-                                    onClick={() => scrollToSection(link.href)}
-                                    className="text-lg font-light text-gray-800 hover:text-[#00AAFF] text-left transition-colors"
-                                >
-                                    {link.label}
-                                </button>
+                        <div className="flex flex-col mt-12 px-6">
+                            {navLinks.map((link, index) => (
+                                <div key={link.href}>
+                                    <button
+                                        onClick={() => scrollToSection(link.href)}
+                                        className="text-2xl font-medium text-white hover:text-[#00AAFF] text-left transition-colors py-4 w-full"
+                                    >
+                                        {link.label}
+                                    </button>
+                                    {index < navLinks.length - 1 && (
+                                        <div className="w-full h-px bg-white/20" />
+                                    )}
+                                </div>
                             ))}
                             <Button
                                 onClick={() => scrollToSection('#contact')}
-                                className="bg-black hover:bg-gray-800 text-white rounded-md w-full py-6 mt-4"
+                                className="bg-white text-black rounded-md w-full py-6 mt-8 font-bold transition-all duration-200 hover:bg-[#00AAFF] hover:text-white hover:scale-105"
                             >
                                 Get Started
                             </Button>
