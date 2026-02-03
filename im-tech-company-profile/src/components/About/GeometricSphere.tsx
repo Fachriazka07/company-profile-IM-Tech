@@ -16,7 +16,7 @@ const AnimatedSphere = () => {
     });
 
     return (
-        <points ref={meshRef} scale={1.8}>
+        <points ref={meshRef} scale={1.7}>
             <sphereGeometry args={[1, 64, 64]} />
             <pointsMaterial
                 color="#00AAFF"

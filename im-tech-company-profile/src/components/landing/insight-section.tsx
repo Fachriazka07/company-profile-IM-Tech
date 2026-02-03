@@ -31,8 +31,6 @@ export function InsightSection() {
                         Baca artikel terbaru kami tentang tren teknologi, tips pengembangan aplikasi, dan inovasi digital.
                     </p>
                 </div>
-
-                {/* Grid System - Responsive: 1 col (mobile), 2 cols (tablet), 4 cols (desktop) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
                     {insights.map((item) => (
                         <div
